@@ -92,17 +92,14 @@ namespace LaradockSites
                 }
                 else if (package == "Laravel")
                 {
-                    using (var client = new WebClient())
-                    {
-                        client.DownloadFile("https://github.com/laravel/laravel/archive/refs/tags/v8.6.10.zip", "laravel.zip");
-                    }
-
-                    if (Directory.Exists("cont")) Directory.Delete("cont", true);
-
-                    System.IO.Compression.ZipFile.ExtractToDirectory("laravel.zip", "cont");
-
-                    Funcs.CopyDirectory(@"cont\laravel-8.6.10", Path.Combine(path.Replace(@"laradock\nginx\sites", ""), site.Location.Replace("public", "")), true);
-                    Directory.Delete("cont", true);
+                    Directory.Delete(Path.Combine(path.Replace(@"laradock\nginx\sites", ""), site.Location), true);
+                    Process p = new Process();
+                    p.StartInfo.WorkingDirectory = Path.Combine(path.Replace(@"laradock\nginx\sites", "laradock"), "");
+                    p.StartInfo.FileName = "cmd.exe";
+                    p.StartInfo.Arguments = "/C docker-compose exec workspace composer create-project --prefer-dist laravel/laravel " + site.Location;
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.Start();
+                    p.WaitForExit();
                 }
                 else if (package == "Wordpress")
                 {
