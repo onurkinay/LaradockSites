@@ -10,6 +10,13 @@ namespace LaradockSites
         Status status; 
         public Main()
         {
+            if (!Funcs.isDockerInstalled())
+            {
+                MessageBox.Show("You need Docker to use this software. Please install Docker. Exiting...", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Environment.Exit(-1);
+
+            }
+
             if (Funcs.isLDExists() && laradock == "0")
             {
                 MessageBox.Show("Choose a folder including laradock folder", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Information);

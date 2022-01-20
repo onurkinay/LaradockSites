@@ -282,5 +282,13 @@ namespace LaradockSites
             }
         }
 
+        public static bool isDockerInstalled()
+        {
+            string docker = runCmd("docker", "--version",true);
+
+            if (docker.Contains("Docker") && docker.Contains("version") && docker.Contains("build")) return true;
+            return false;
+        }
+
     }
 }
