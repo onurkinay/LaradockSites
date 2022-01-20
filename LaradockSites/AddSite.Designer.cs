@@ -35,11 +35,13 @@
             this.tbUrl = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbKlasorAdi = new System.Windows.Forms.TextBox();
+            this.cbPackage = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(284, 108);
+            this.btnAdd.Location = new System.Drawing.Point(284, 142);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 29);
             this.btnAdd.TabIndex = 3;
@@ -95,11 +97,34 @@
             this.tbKlasorAdi.Size = new System.Drawing.Size(268, 27);
             this.tbKlasorAdi.TabIndex = 2;
             // 
+            // cbPackage
+            // 
+            this.cbPackage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPackage.FormattingEnabled = true;
+            this.cbPackage.Items.AddRange(new object[] {
+            "Laravel",
+            "Wordpress"});
+            this.cbPackage.Location = new System.Drawing.Point(110, 108);
+            this.cbPackage.Name = "cbPackage";
+            this.cbPackage.Size = new System.Drawing.Size(268, 28);
+            this.cbPackage.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 111);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 20);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Package";
+            // 
             // AddSite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 158);
+            this.ClientSize = new System.Drawing.Size(395, 186);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbPackage);
             this.Controls.Add(this.tbKlasorAdi);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbUrl);
@@ -128,5 +153,7 @@
         private TextBox tbUrl;
         private Label label3;
         private TextBox tbKlasorAdi;
+        private ComboBox cbPackage;
+        private Label label4;
     }
 }

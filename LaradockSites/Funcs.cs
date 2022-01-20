@@ -79,8 +79,7 @@ namespace LaradockSites
         {
             if (isLDRunning())
             {   // Start the child process.
-                Status status = new("NGINX is restarting. Please wait...");
-                status.Show();
+                
                 Process p = new Process();
                 p.StartInfo.WorkingDirectory = Path.Combine(Main.laradock, "laradock");
                 p.StartInfo.FileName = "docker-compose";
@@ -89,7 +88,7 @@ namespace LaradockSites
                 p.StartInfo.CreateNoWindow = true;
                 p.Start();
                 p.WaitForExit();
-                status.Close();
+            
             }
         }
 
@@ -140,12 +139,15 @@ namespace LaradockSites
             status.StartPosition = FormStartPosition.Manual;
             status.Location = new Point(form.Location.X + (form.Width - status.Width) / 2, form.Location.Y + (form.Height - status.Height) / 2);
             form.Enabled = false;
-            ((Main)form).timer1.Enabled = false;
+            if(form is Main)
+            { 
+                ((Main)form).timer1.Enabled = false;
+            }
             status.Show();
             return status;
         }
          
-        static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)
+        public static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)
         {
             // Get information about the source directory
             var dir = new DirectoryInfo(sourceDir);
