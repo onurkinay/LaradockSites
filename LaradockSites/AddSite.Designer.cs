@@ -43,7 +43,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 29);
             this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Ekle";
+            this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -52,15 +52,15 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
+            this.label1.Size = new System.Drawing.Size(78, 20);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Site Adı";
+            this.label1.Text = "Site Name";
             // 
             // tbSiteAdi
             // 
-            this.tbSiteAdi.Location = new System.Drawing.Point(92, 9);
+            this.tbSiteAdi.Location = new System.Drawing.Point(110, 9);
             this.tbSiteAdi.Name = "tbSiteAdi";
-            this.tbSiteAdi.Size = new System.Drawing.Size(286, 27);
+            this.tbSiteAdi.Size = new System.Drawing.Size(268, 27);
             this.tbSiteAdi.TabIndex = 0;
             // 
             // label2
@@ -74,9 +74,9 @@
             // 
             // tbUrl
             // 
-            this.tbUrl.Location = new System.Drawing.Point(92, 42);
+            this.tbUrl.Location = new System.Drawing.Point(110, 42);
             this.tbUrl.Name = "tbUrl";
-            this.tbUrl.Size = new System.Drawing.Size(286, 27);
+            this.tbUrl.Size = new System.Drawing.Size(268, 27);
             this.tbUrl.TabIndex = 1;
             // 
             // label3
@@ -84,15 +84,15 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(9, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 20);
+            this.label3.Size = new System.Drawing.Size(95, 20);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Klasör Adı";
+            this.label3.Text = "Folder Name";
             // 
             // tbKlasorAdi
             // 
-            this.tbKlasorAdi.Location = new System.Drawing.Point(92, 75);
+            this.tbKlasorAdi.Location = new System.Drawing.Point(110, 75);
             this.tbKlasorAdi.Name = "tbKlasorAdi";
-            this.tbKlasorAdi.Size = new System.Drawing.Size(286, 27);
+            this.tbKlasorAdi.Size = new System.Drawing.Size(268, 27);
             this.tbKlasorAdi.TabIndex = 2;
             // 
             // AddSite

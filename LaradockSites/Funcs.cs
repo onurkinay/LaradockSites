@@ -11,10 +11,10 @@ namespace LaradockSites
 {
     internal class Funcs
     { /* 
-       * docker is exists or not
+       * --docker is exists or not
        * package installing
        * reinstall laradock if laradock folder exists
-       * one function for process and status
+       * --one function for process and status
        * --add index html when added site 
        * 
        * */
@@ -113,13 +113,25 @@ namespace LaradockSites
             Process p = new Process();
             p.StartInfo.WorkingDirectory = Path.Combine(Main.laradock, "laradock");
             p.StartInfo.FileName = "docker-compose";
-            p.StartInfo.Arguments = "up -d nginx mysql phpmyadmin redis workspace ";
+            p.StartInfo.Arguments = "up -d nginx mysql phpmyadmin redis workspace";
         
             p.Start();
             p.WaitForExit();
             Application.Restart();
             
            
+        }
+
+        public static void reinstallLaradock()
+        {
+            Process p = new Process();
+            p.StartInfo.WorkingDirectory = Path.Combine(Main.laradock, "laradock");
+            p.StartInfo.FileName = "docker-compose";
+            p.StartInfo.Arguments = "up -d nginx mysql phpmyadmin redis workspace";
+
+            p.Start();
+            p.WaitForExit();
+            Application.Restart();
         }
 
         public static Status showStatus(Form form, string statusText)
@@ -206,19 +218,26 @@ namespace LaradockSites
 
         public static string runCmd(string program, string args,bool isCreateNoWindow)
         {
-            // Start the child process.
-            Process p = new Process();
-            // Redirect the output stream of the child process.
-            p.StartInfo.UseShellExecute = false;
-            p.StartInfo.RedirectStandardOutput = true;
-            p.StartInfo.FileName = program;
-            p.StartInfo.Arguments = args;
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            p.StartInfo.CreateNoWindow = isCreateNoWindow;
-            p.Start();
-            string output = p.StandardOutput.ReadToEnd();
-            p.WaitForExit();
-            return output;
+            try
+            {
+                // Start the child process.
+                Process p = new Process();
+                // Redirect the output stream of the child process.
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.FileName = program;
+                p.StartInfo.Arguments = args;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = isCreateNoWindow;
+                p.Start();
+                string output = p.StandardOutput.ReadToEnd();
+                p.WaitForExit();
+                return output;
+            }catch  
+            {
+                return "";
+            }
+         
         }
 
         public static void changePath(bool isFirst)

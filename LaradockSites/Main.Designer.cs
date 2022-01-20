@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.lbSiteler = new System.Windows.Forms.ListBox();
             this.btnSiteEkle = new System.Windows.Forms.Button();
             this.btnSiteSil = new System.Windows.Forms.Button();
@@ -67,7 +68,7 @@
             this.btnSiteEkle.Name = "btnSiteEkle";
             this.btnSiteEkle.Size = new System.Drawing.Size(94, 29);
             this.btnSiteEkle.TabIndex = 1;
-            this.btnSiteEkle.Text = "Site Ekle";
+            this.btnSiteEkle.Text = "Add Site";
             this.btnSiteEkle.UseVisualStyleBackColor = true;
             this.btnSiteEkle.Click += new System.EventHandler(this.btnSiteEkle_Click);
             // 
@@ -77,7 +78,7 @@
             this.btnSiteSil.Name = "btnSiteSil";
             this.btnSiteSil.Size = new System.Drawing.Size(94, 29);
             this.btnSiteSil.TabIndex = 2;
-            this.btnSiteSil.Text = "Site Sil";
+            this.btnSiteSil.Text = "Delete Site";
             this.btnSiteSil.UseVisualStyleBackColor = true;
             this.btnSiteSil.Click += new System.EventHandler(this.btnSiteSil_Click);
             // 
@@ -93,7 +94,7 @@
             this.groupBox1.Size = new System.Drawing.Size(300, 204);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Site Bilgileri";
+            this.groupBox1.Text = "Site Information";
             // 
             // btnOpenSite
             // 
@@ -102,7 +103,7 @@
             this.btnOpenSite.Name = "btnOpenSite";
             this.btnOpenSite.Size = new System.Drawing.Size(118, 29);
             this.btnOpenSite.TabIndex = 4;
-            this.btnOpenSite.Text = "Siteyi Aç";
+            this.btnOpenSite.Text = "Open Site";
             this.btnOpenSite.UseVisualStyleBackColor = true;
             this.btnOpenSite.Click += new System.EventHandler(this.btnOpenSite_Click);
             // 
@@ -113,7 +114,7 @@
             this.btnOpenDirectory.Name = "btnOpenDirectory";
             this.btnOpenDirectory.Size = new System.Drawing.Size(118, 29);
             this.btnOpenDirectory.TabIndex = 3;
-            this.btnOpenDirectory.Text = "Klasörü Aç";
+            this.btnOpenDirectory.Text = "Open Folder";
             this.btnOpenDirectory.UseVisualStyleBackColor = true;
             this.btnOpenDirectory.Click += new System.EventHandler(this.btnOpenDirectory_Click);
             // 
@@ -221,7 +222,7 @@
             this.btnChangePath.Name = "btnChangePath";
             this.btnChangePath.Size = new System.Drawing.Size(101, 29);
             this.btnChangePath.TabIndex = 2;
-            this.btnChangePath.Text = "Path Değiştir";
+            this.btnChangePath.Text = "Change Path";
             this.btnChangePath.UseVisualStyleBackColor = true;
             this.btnChangePath.Click += new System.EventHandler(this.btnChangePath_Click);
             // 
@@ -236,6 +237,7 @@
             this.Controls.Add(this.btnSiteSil);
             this.Controls.Add(this.btnSiteEkle);
             this.Controls.Add(this.lbSiteler);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "Laradock Control Panel";
             this.Load += new System.EventHandler(this.Form1_Load);

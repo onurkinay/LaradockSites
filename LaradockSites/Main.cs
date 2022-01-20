@@ -14,7 +14,6 @@ namespace LaradockSites
             {
                 MessageBox.Show("You need Docker to use this software. Please install Docker. Exiting...", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(-1);
-
             }
 
             if (Funcs.isLDExists() && laradock == "0")
@@ -42,6 +41,22 @@ namespace LaradockSites
                 btnAccessCMD.Enabled = false;
                 btnChangePath.Enabled = true;
                 timer1.Enabled = false;
+                return;
+            }else if (!Funcs.isLDExists() && siteler.Count > 0)
+            {
+                lbStatus.Text = "LARADOCK FOLDER IS EXISTS BUT LARADOCK IN DOCKER DOESN'T EXISTS. REINSTALL";
+                btnOpenDirectory.Enabled = false;
+                btnOpenSite.Enabled = false;
+                btnStartLD.Enabled = false;
+                btnStopLD.Enabled = false;
+                btnSiteEkle.Enabled = false;
+                btnSiteSil.Enabled = false; 
+                btnAccessCMD.Enabled = false;
+                btnChangePath.Enabled = true;
+                timer1.Enabled = false;
+
+                btnInstall.Enabled = true;
+                btnInstall.Text = "Reinstall Laradock";
                 return;
             }
 
@@ -114,7 +129,16 @@ namespace LaradockSites
                 MessageBox.Show("Bir site seçiniz");
             }
         }
+        private void myProcess_Exited(object sender, System.EventArgs e)
+        {
+            this.Invoke((MethodInvoker)delegate
+            {
+                status.Close();
+                this.Enabled = true;
+                timer1.Enabled = true;
 
+            });
+        }
         private void btnStartLD_Click(object sender, EventArgs e)
         {
             status = Funcs.showStatus(this, "Laradock is starting. Please wait");
@@ -156,16 +180,7 @@ namespace LaradockSites
                 p.WaitForExit();
             });
         }
-        private void myProcess_Exited(object sender, System.EventArgs e)
-        {
-            this.Invoke((MethodInvoker)delegate
-            {
-                status.Close();
-                this.Enabled = true;
-                timer1.Enabled = true;
-                
-            });
-        }
+   
          
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -209,12 +224,24 @@ namespace LaradockSites
 
         private void btnInstall_Click(object sender, EventArgs e)
         {
-            Funcs.changePath(true);
-            Status status = Funcs.showStatus(this, "Laradock is installing. Please wait.");
-            Task.Run(() =>
+            if (!btnInstall.Text.Contains("Reinstall"))
             {
-                Funcs.installLaradock();
-            });
+                Funcs.changePath(true);
+                Status status = Funcs.showStatus(this, "Laradock is installing. Please wait.");
+                Task.Run(() =>
+                {
+                    Funcs.installLaradock();
+                });
+            }
+            else
+            {
+                Status status = Funcs.showStatus(this, "Laradock is reinstalling. Please wait.");
+                Task.Run(() =>
+                {
+                    Funcs.reinstallLaradock();
+                });
+            }
+           
     
         }
 
