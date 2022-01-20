@@ -252,19 +252,20 @@ namespace LaradockSites
             if (result == DialogResult.OK)
             {
                 string folderName = folderBrowserDialog1.SelectedPath;
-                if (isFirst)//first time?
-                {
-                    ConfigurationManager.AppSettings.Set("Path", folderName);
-                    AddOrUpdateAppSettings("Path", folderName);
-                    Main.laradock = folderName;
-                    return;
-                }
+               
                 if (Directory.Exists(Path.Combine(folderName, "laradock")))//check laradock folder exists
                 {
                     ConfigurationManager.AppSettings.Set("Path", folderName);
                     AddOrUpdateAppSettings("Path", folderName);
                     Main.laradock = folderName;
                     Application.Restart();
+                }
+                else if (isFirst)//first time?
+                {
+                    ConfigurationManager.AppSettings.Set("Path", folderName);
+                    AddOrUpdateAppSettings("Path", folderName);
+                    Main.laradock = folderName;
+                    return;
                 }
                 else if (isLDExists())//chech laradock conts. in docker
                 {
