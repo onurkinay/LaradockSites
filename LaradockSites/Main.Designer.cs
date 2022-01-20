@@ -262,9 +262,9 @@
         private Label lbStatus;
         private GroupBox groupBox2;
         private Button btnStopLD;
-        private System.Windows.Forms.Timer timer1;
         private Button btnInstall;
         private Button btnAccessCMD;
         private Button btnChangePath;
+        public System.Windows.Forms.Timer timer1;
     }
 }
