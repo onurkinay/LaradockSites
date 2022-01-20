@@ -59,7 +59,9 @@ namespace LaradockSites
                 }
             }
             Directory.CreateDirectory(Path.Combine(path.Replace(@"laradock\nginx\sites", ""), tbKlasorAdi.Text));
-            Funcs.RestartNginx(path);
+            File.Create(Path.Combine(path.Replace(@"laradock\nginx\sites", ""), tbKlasorAdi.Text,"index.html")).Close();
+            File.AppendAllText(Path.Combine(path.Replace(@"laradock\nginx\sites", ""), tbKlasorAdi.Text,"index.html"),"<h1>Hello</h1>");
+            Funcs.RestartNginx();
          
 
             this.Close();

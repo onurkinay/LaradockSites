@@ -1,6 +1,6 @@
 ﻿namespace LaradockSites
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         ///  Required designer variable.
@@ -41,8 +41,11 @@
             this.btnStartLD = new System.Windows.Forms.Button();
             this.lbStatus = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnInstall = new System.Windows.Forms.Button();
             this.btnStopLD = new System.Windows.Forms.Button();
+            this.btnAccessCMD = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnChangePath = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -163,7 +166,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lbStatus);
+            this.groupBox2.Controls.Add(this.btnInstall);
             this.groupBox2.Controls.Add(this.btnStopLD);
+            this.groupBox2.Controls.Add(this.btnAccessCMD);
             this.groupBox2.Controls.Add(this.btnStartLD);
             this.groupBox2.Location = new System.Drawing.Point(12, 257);
             this.groupBox2.Name = "groupBox2";
@@ -171,6 +176,17 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Laradock";
+            // 
+            // btnInstall
+            // 
+            this.btnInstall.Enabled = false;
+            this.btnInstall.Location = new System.Drawing.Point(358, 127);
+            this.btnInstall.Name = "btnInstall";
+            this.btnInstall.Size = new System.Drawing.Size(170, 29);
+            this.btnInstall.TabIndex = 4;
+            this.btnInstall.Text = "Install Laradock";
+            this.btnInstall.UseVisualStyleBackColor = true;
+            this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
             // 
             // btnStopLD
             // 
@@ -183,23 +199,44 @@
             this.btnStopLD.UseVisualStyleBackColor = true;
             this.btnStopLD.Click += new System.EventHandler(this.btnStopLD_Click);
             // 
+            // btnAccessCMD
+            // 
+            this.btnAccessCMD.Location = new System.Drawing.Point(6, 92);
+            this.btnAccessCMD.Name = "btnAccessCMD";
+            this.btnAccessCMD.Size = new System.Drawing.Size(170, 29);
+            this.btnAccessCMD.TabIndex = 4;
+            this.btnAccessCMD.Text = "Access Console";
+            this.btnAccessCMD.UseVisualStyleBackColor = true;
+            this.btnAccessCMD.Click += new System.EventHandler(this.btnAccessCMD_Click);
+            // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Form1
+            // btnChangePath
+            // 
+            this.btnChangePath.Location = new System.Drawing.Point(212, 222);
+            this.btnChangePath.Name = "btnChangePath";
+            this.btnChangePath.Size = new System.Drawing.Size(101, 29);
+            this.btnChangePath.TabIndex = 2;
+            this.btnChangePath.Text = "Path Değiştir";
+            this.btnChangePath.UseVisualStyleBackColor = true;
+            this.btnChangePath.Click += new System.EventHandler(this.btnChangePath_Click);
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 431);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnChangePath);
             this.Controls.Add(this.btnSiteSil);
             this.Controls.Add(this.btnSiteEkle);
             this.Controls.Add(this.lbSiteler);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Laradock Control Panel";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
@@ -226,5 +263,8 @@
         private GroupBox groupBox2;
         private Button btnStopLD;
         private System.Windows.Forms.Timer timer1;
+        private Button btnInstall;
+        private Button btnAccessCMD;
+        private Button btnChangePath;
     }
 }

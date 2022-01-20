@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 160);
+            this.ClientSize = new System.Drawing.Size(395, 158);
             this.Controls.Add(this.tbKlasorAdi);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbUrl);
