@@ -16,6 +16,12 @@ namespace LaradockSites
                 Environment.Exit(-1);
             }
 
+            if (!Funcs.isDockerRunning())
+            {
+                MessageBox.Show("Docker is not running. Please run Docker. Exiting...", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Environment.Exit(-1);
+            }
+
             if (Funcs.isLDExists() && laradock == "0")
             {
                 MessageBox.Show("Choose a folder including laradock folder", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -312,5 +312,13 @@ namespace LaradockSites
             return false;
         }
 
+        public static bool isDockerRunning()
+        {
+            string docker = runCmd("docker", "info", true);
+
+            if (docker.Contains("error during connect")) return false;
+            return true;
+        }
+
     }
 }
